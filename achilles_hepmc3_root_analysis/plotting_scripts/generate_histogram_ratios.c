@@ -1,7 +1,7 @@
-void generate_histogram_ratios() {
+void generate_histogram_ratios(const char* argon_file, const char* carbon_file) {
 
-  TFile *fAr = TFile::Open("/Users/NathanPando1/Downloads/cascades_ar_run.root");
-  TFile *fC  = TFile::Open("/Users/NathanPando1/Downloads/cascades_c_run.root");
+  TFile *fAr = TFile::Open(argon_file);
+  TFile *fC  = TFile::Open(carbon_file);
 
   auto get = [](TFile* f, const char* name){ return (TH1D*)f->Get(name); };
 
