@@ -124,6 +124,20 @@ int main(int argc, char** argv) {
     halphat[i]->Sumw2();
     hphit[i]->Sumw2();
     hEmu[i]->Sumw2();
+
+    hIn_nu_E[i]->SetCanExtend(TH1::kAllAxes);
+    hOut_mu_pz[i]->SetCanExtend(TH1::kAllAxes);
+    hOut_p_cosTheta[i]->SetCanExtend(TH1::kAllAxes);
+    homega[i]->SetCanExtend(TH1::kAllAxes);
+    hmupmag[i]->SetCanExtend(TH1::kAllAxes);
+    hppmag[i]->SetCanExtend(TH1::kAllAxes);
+    hQ2[i]->SetCanExtend(TH1::kAllAxes);
+    hthetamup[i]->SetCanExtend(TH1::kAllAxes);
+    hdeltapt[i]->SetCanExtend(TH1::kAllAxes);
+    halphat[i]->SetCanExtend(TH1::kAllAxes);
+    hphit[i]->SetCanExtend(TH1::kAllAxes);
+    hEmu[i]->SetCanExtend(TH1::kAllAxes);
+  
   }
 
   // -------------------- event loop --------------------
@@ -221,7 +235,9 @@ int main(int argc, char** argv) {
       if (bin > numuFlux_Gev->GetNbinsX()) bin = numuFlux_Gev->GetNbinsX();
       flux_w = numuFlux_Gev->GetBinContent(bin);
     }
-    const double weight = flux_w * gen_w;
+    const double weight = gen_w;
+
+    
 
     // fill totals
     hIn_nu_E[0]      ->Fill(in_nu_E,     weight);
